@@ -1,0 +1,1402 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<title>&#128138 TOOLS 198 </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="icon" href="http://192.168.197.39:8087/favicon.ico" type="image/x-icon" />-->
+<style>
+#dstinhhuong{ font-weight: bold;}
+#endtime,.txtHL,#txtHLNOK,#txtTH{color: red; font-weight: bold; margin-left: 20px;}
+#pagecheckHL{width: 135vw; background-color: #f0f6ff; color: #0f1f3d;text-align: center;}
+#xlpatg{background-color: #f0f6ff; color: #0f1f3d;text-align: center;}
+#dvExcel
+{
+border: 1px solid #0f1f3d;border-radius: 5px;
+border-collapse: collapse;
+}
+#dvExcel th
+{
+background-color: #099;
+color: #fff;
+font-weight: bold;
+}
+#dvExcel th, #dvExcel td
+{
+text-align: center;
+padding: 5px;
+border: 1px solid #ccc;
+}
+#checkHL{width: 100%;margin-top: 0%;border-radius: 5px;}
+
+#myInput
+{
+width: auto;
+font-size: 1.1vw;
+color:#00001a;
+font-weight: bold;
+text-align: center;
+}
+/*Hide tabcontent*/
+.tabcontent
+{
+display: none; 
+padding: 6px 12px;
+border: none;
+border-top: none;
+}
+
+/*Modal*/
+.modal
+{
+display: none;
+position: fixed;
+z-index: 2;
+padding-top:5px;
+left: 0;
+top: 0px;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgb(0,0,0);
+background-color: rgba(0,0,0,0.8);
+border: none;
+animation: fadeEffect 1s;
+}
+
+.modal-header
+{
+text-align: center;
+background-color: #000; 
+color: #66c2ff;
+font-weight: bold;
+padding-top: 10px;
+height: 40px;
+}
+/*Modal content*/
+.modalcontent
+{
+margin-left: 1.3%;
+width: 97%;
+padding-bottom: 80px;
+border-radius: 10px;
+}
+/*Close button*/
+.close
+{
+width: 25px;
+height: 30px;
+margin-top: 1%;
+margin-right: 10px;
+padding-left: 5px;
+background-color: yellow;
+border-radius: 20px;
+color: red;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+.close:hover, .close:focus
+{
+background: red;
+color: yellow;
+text-decoration: none;
+cursor: pointer;
+}
+
+/* END MODAL */
+
+#countdownie {margin-left: 2%; position:absolute; top: 50px; font-size: 1.1vw;color: #ffffe6;}
+#khdb 
+{margin-left: 82%; position:absolute; top: 55px; font-size: 1.1vw;background: linear-gradient(#ff9980,#cc7a00,#ff0);color:#0f1f3d;font-weight: bold;}
+#khdb:hover{color: #fff;
+  background: linear-gradient(#099,#004d4d,#099);}
+#tbkhdb
+{   margin-top: 20px;
+    width: 100%;
+    height: 90vh;
+    color: #0f1f3d;
+}
+
+table,tr,td{border: 2px groove rgb(1, 32, 1); text-align: left;}
+.tdstt{width: 2%;}
+.tdten{width: 14%; color:red; font-weight: bold;}
+.tdsdt{width: 34%;}
+.tdndkn{width: 50%;}
+.tdstt,.tdten,.tdsdt,.tdndkn{padding-left: 10px;}
+.t
+{ text-align:center; color: #0f1f3d;
+}
+#menu
+{
+z-index: 1;
+list-style-type: none;
+color: #fff;
+margin: 0;
+overflow:hidden;
+background: linear-gradient(#75a3f8,#0f1f3d,#75a3f8);
+position: fixed;
+top: 0;
+width: 100%;
+
+}
+#menu>li{float: left; text-align: center; margin-left:-18px;}
+#menu>li>a
+{
+display: block;
+color: #fff;
+text-align: center;
+padding: 10px 20px;
+text-transform: uppercase;
+font-weight:bold;
+}
+#menu>li>a:hover
+{
+color: #0f1f3d;
+background:linear-gradient(#f2ffcc,#ffffe6,#ffffe6,#f2ffcc);
+box-shadow: 0px 1px 10px #fff;
+cursor: pointer;
+animation: updown 0.5s alternate ease-in-out;
+}
+.lb{color: rgb(253, 208, 84);font-weight:bold;}
+.lb2{color: yellow;font-weight:bold;background:none;}
+#caption
+{
+  border-bottom: 2px solid;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  text-align:center;
+  color:#ffffe6;
+  margin-top: 50px;
+  padding-top: 60px;
+}
+select{border-radius: 2px; border:1px groove; background: none; color: #004d99;font-weight:bold;}
+#cacdauso, #dauso, #nhamang {text-align:center; color:#0059b3;font-weight: bold;}
+
+@keyframes color
+{
+ 0% {filter: hue-rotate(0deg);}
+ 100% {filter: hue-rotate(360deg);}
+}
+@keyframes fadeEffect
+{
+ from {opacity: 0;}
+ to {opacity: 1;}
+}
+
+.flex-container
+{
+ height: auto;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap; 
+ background:none;
+ justify-content: center;
+}
+
+.flex-item
+{
+ overflow: auto;
+ font-size: 1.07vw;
+ position: relative;
+ margin: 5px 10px 30px;
+ height: 23vw;
+ width: 20%;
+ background:linear-gradient(90deg,#0f1f3d,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#fae397);
+ border-left:none;
+ border-radius: 8px;
+ padding: 20px;
+ text-align: left;
+ word-wrap: break-word;
+}
+.flex-item a 
+{color: #36f; 
+font-family: "Segoe script"; }
+.flex-item>button{position: absolute; bottom: 10px; margin-left: 35%;}
+@keyframes updown
+{
+0%{right: 0px;}
+5%{right: -2px;}
+10%{right: -4px;}
+20%{right: -6px;}
+50%{right: -3px;}
+60%{right: 0px;}
+70%{right: 3px;}
+80%{right: 5px;}
+85%{right: 3px;}
+90%{right: -2px;}
+100%{right: 0px;}
+}
+.flex-item:hover
+{background:linear-gradient(90deg,#f2ffcc,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#f2ffcc);
+ box-shadow: 0px 1px 15px #fff;
+ border-radius:4px;
+ animation: updown 0.5s alternate ease-in-out;
+}
+
+body 
+{
+margin: 0;
+color: #600;
+background: linear-gradient(#0f1f3d,#0f1f3d,#0f1f3d);
+
+}
+#tools
+{background: inherit;}
+
+#logo
+{z-index:3;
+ color: #a88d42;
+ margin-left: 81%; 
+ bottom: 0px;
+ position: fixed;
+ font-family: chiller; font-size: 20px;
+}
+#hotline{color:#ff0;float: left;padding-left: 3%; padding-top: 70px;}
+
+iframe {box-shadow: 0px 0px 10px #fff; border-radius: 5px}
+button , #upload,#lochl
+{ border: 1px groove #fff;
+  border-left: none;
+  border-right: none;
+  border-radius: 5px;
+  margin-left: 8px;
+  padding-bottom: 3px;
+  color: #fff;
+  background:linear-gradient(#adcdfd,#003380,#66a3ff);
+}
+button:hover , #upload:hover,#lochl:hover
+{color:#fff;background: linear-gradient(#099,#004d4d,#099);
+cursor: pointer;
+}
+p{ margin-left: -10px; }
+
+a:hover{color: red; font-weight: bold;}
+.link{font-weight:bold;color: #f85a11; width: 100px; background: transparent; border:none; }
+audio{height: 30px;}
+
+</style>
+
+<script language="javascript"> 
+
+   function xlTH()
+   {
+    var e= document.getElementById('dstinhhuong');
+    var val =e.options[e.selectedIndex].value;
+    var selected = e.options[e.selectedIndex].selected;
+    var url = val;
+    var el = document.getElementById('xlth');
+    if(selected==true)
+    { 
+      if(e.selectedIndex==0)
+      {
+        document.getElementById('txtTH').innerHTML = "Menu Đài 198/ HD GQKN /Cước dịch vụ/ SMS,MMS trong nước => Mục số 4";
+        el.src = url;
+      }
+      if(e.selectedIndex==1)
+      {
+        document.getElementById('txtTH').innerHTML = "Menu Đài 198/ HD GQKN /Cước dịch vụ/ KHUYẾN MẠI DI ĐỘNG TRẢ SAU =>  KH yêu cầu tăng/Hạ /Hủy khuyến mại";
+        el.src = url;
+      }
+      if(e.selectedIndex==2)
+      {
+        document.getElementById('txtTH').innerHTML = "Menu Đài 198/ HD Nghiệp vụ / Di động =>  HD tiếp nhận y/c hủy gia hạn KM trả sau";
+        el.src = url;
+      }
+      if(e.selectedIndex==3)
+      {
+        document.getElementById('txtTH').innerHTML = "Menu Đài 198/ GQKN/Cước DV/Cước truy cập trong nước => Mục 4: (2) Không đăng ký dịch vụ data nhưng bị tính cước";
+        el.src = url;
+      }
+      if(e.selectedIndex==4)
+      {
+        document.getElementById('txtTH').innerHTML = "Menu Đài 198/ GQKN/Dữ liệu Khách hàng &TTTB/Xác minh thông tin";
+        el.src = url;
+      }
+      if(e.selectedIndex==5)
+      {
+        document.getElementById('txtTH').innerHTML = "Menu Đài 198/ GQKN/Dữ liệu Khách hàng &TTTB/Khách hàng giả mạo";
+        el.src = url;
+      }
+      if(e.selectedIndex==6)
+      {
+        document.getElementById('txtTH').innerHTML = "Trường hợp sau khi giải thích mà KH NOK => Xử lý tiếp theo: GQKN/Cước DV/Cước truy cập trong nước";
+        el.src = url;
+      }
+      if(e.selectedIndex==7)
+      {
+        document.getElementById('txtTH').innerHTML = "Nhập vào Mã dòng máy, Vd: Galaxy J7 hoặc Iphone XR";
+        el.src = url;
+      }
+      if(e.selectedIndex==8)
+      {
+        document.getElementById('txtTH').innerHTML = "Menu Đài 198/ GQKN/ Hỗ trợ KH / Tin nhắn, CG quảng cáo";
+        el.src = url;
+      }
+      if(e.selectedIndex==9)
+      {
+        document.getElementById('txtTH').innerHTML = "Thủ tục đa dịch vụ/ Tạm khóa, nối lại thông tin / Chặn sim kích hoạt sẵn";
+        el.src = url;
+      }
+      if(e.selectedIndex==10)
+      {
+        document.getElementById('txtTH').innerHTML = "Menu Đài 198/ GQKN/Dữ liệu KH/ Chặn sai yêu cầu";
+        el.src = url;
+      }
+    }
+   }
+   
+
+   function Opentab()
+   {
+      if(!document.getElementsByTagName)
+       return;
+      var anchors= document.getElementsByTagName("a");
+      for(var i = 0; i < anchors.length; i++)
+      {
+         var anchor = anchors[i];
+      if(anchor.getAttribute("href"))
+         anchor.target = "_blank";
+      }
+   }
+
+   function reverse(s){
+      var o= '';
+      for(var i=s.length-1;i>=0;i--)
+         o+=s[i];
+      return o;
+   }
+
+   function doiDauso()
+   {
+    var e= document.getElementById('chondauso');
+    var val =e.options[e.selectedIndex].value;
+    var txt =e.options[e.selectedIndex].text;
+    
+    if(e.options[e.selectedIndex].selected==true)
+    { 
+      if(txt=='016')
+      {
+        document.getElementById('dauso').innerHTML = val;
+        document.getElementById('nhamang').innerHTML= 'Viettel';
+      }
+      if(txt=='0120'|| txt=='0121'|| txt=='0122'||txt=='0126' || txt=='0128')
+      {
+      document.getElementById('dauso').innerHTML = val;
+      document.getElementById('nhamang').innerHTML= 'Mobifone';
+      }
+      if(txt=='0123'|| txt=='0124'|| txt=='0125'|| txt=='0127' ||txt=='0129')
+      {    
+      document.getElementById('dauso').innerHTML = val;
+      document.getElementById('nhamang').innerHTML= 'Vinaphone';
+      }
+      if(txt=='0186' || txt=='0188')
+      {	document.getElementById('dauso').innerHTML = val;
+      document.getElementById('nhamang').innerHTML= 'Vietnamobile';
+      }
+      if(txt=='0199')
+      {
+      document.getElementById('dauso').innerHTML = val;
+      document.getElementById('nhamang').innerHTML= 'Gmobile';
+      }
+      document.getElementById("logo").innerHTML= reverse("2cc_3937gnadvtno yb detaerC");
+    }
+   }
+   
+   function traDauso()
+   {
+    var e= document.getElementById('chonnhamang');
+    var val =e.options[e.selectedIndex].value;
+    var txt =e.options[e.selectedIndex].text;
+    if(e.options[e.selectedIndex].selected==true)
+    { 
+      if(txt=='Viettel')
+      {
+        document.getElementById('cacdauso').innerHTML = val +' <br><br>Và các đầu số: 086 , 096, 097, 098';
+      }
+      if(txt=='Mobifone')
+      {
+      document.getElementById('cacdauso').innerHTML = val +' <br><br>Và các đầu số: 089, 090, 093';
+      }
+      if(txt=='Vinaphone')
+      {    
+      document.getElementById('cacdauso').innerHTML = val +' <br><br>Và các đầu số: 091, 094';
+      }
+      if(txt=='Vietnamobile')
+      {	document.getElementById('cacdauso').innerHTML = val+' <br><br>Và các đầu số: 092';
+      }
+      if(txt=='GMobile')
+      {
+      document.getElementById('cacdauso').innerHTML = val+' <br><br>Và các đầu số: 0993, 0994, 0995, 0996, 0997';
+      }
+      if(txt=='ITelecom')
+      {
+      document.getElementById('cacdauso').innerHTML = 'Đầu số: '+ val+'<br>Mạng di động ảo ITelecom do Đông Dương Telecom hợp tác trên hạ tầng Vinaphone để cung cấp dịch vụ.';
+      }
+      if(txt=='Reddi')
+      {
+      document.getElementById('cacdauso').innerHTML = 'Đầu số: '+ val+'<br>Mạng di động ảo Reddi do MobiCast hợp tác trên hạ tầng VNPT để cung cấp dịch vụ.';
+      }
+      if(txt=='VSAT')
+      {
+      document.getElementById('cacdauso').innerHTML = 'Mạng vệ tinh: '+ val;
+      }
+    }
+   }
+   
+</script>
+   
+   </head>
+   <body onload="doiDauso(), traDauso()">
+   <span id="logo"><i></i></span>
+   
+   <ul id='menu'>
+      <li><a class='tablinks' onclick=openPage('tools')>Tools</a></li>
+      <li><a class='tablinks' onclick=openPage('dd')>Điểm danh</a></li>
+      <li><a class='tablinks' onclick=openPage('gpptc')>GP phiên TC</a></li>
+      <li><a class='tablinks' onclick=openPage('xlpatg')  title="HDXL 1 SỐ P/A HAY GẶP">HDXL P/A thường gặp</a></li>
+      <li><a class='tablinks' onclick=openPage('tdkhac')>Tổng đài mạng ngoài</a></li>
+      <li><a class='tablinks' onclick=openPage('tdnh')>Tổng đài ngân hàng</a></li>
+      <li><a class='tablinks' onclick=openPage('pagecheckHL')>Check hài lòng ngày</a></li>
+      <li><a class='tablinks' onclick="document.getElementsByClassName('modal')[8].style.display ='block' ">HDSD (v3.0)</a></li>
+      </ul>
+   
+      <div id='tools' class='tabcontent'>
+         <button id='khdb' onclick = "document.getElementsByClassName('modal')[12].style.display ='block' ">DS Khách hàng đặc biệt</button>
+        
+      <h1 id="caption" align='center'>&#128640 TOOLS HỖ TRỢ LINE 198 &#128640</h1>
+      
+      <div class ="flex-container">
+      
+      <div class="flex-item">&#128270<b class="t"> Tra cứu nhanh đầu số các nhà mạng:</b> 
+      <ul>
+      <li>Đầu số cũ (11 số):
+      <select id='chondauso' onchange='doiDauso()'>
+      <option value='03'>016</option>
+      <option value='070'>0120</option>
+      <option value='079'>0121</option>
+      <option value='077'>0122</option>
+      <option value='083'>0123</option>
+      <option value='084'>0124</option>
+      <option value='085'>0125</option>
+      <option value='076'>0126</option>
+      <option value='081'>0127</option>
+      <option value='078'>0128</option>
+      <option value='082'>0129</option>
+      <option value='056'>0186</option>
+      <option value='058'>0188</option>
+      <option value='059'>0199</option>
+      </select><br><br>
+       Đổi thành <span id='dauso'></span> mạng <span id='nhamang'></span>
+      </li><br>
+      <li>
+      Xem đầu số mạng:    
+      <select id='chonnhamang' onchange='traDauso()'>
+      <option value='032, 033, 034, 035, 036, 037, 038, 039'>Viettel</option>
+      <option value='070, 076, 077, 078, 079'>Mobifone</option>
+      <option value='081, 082, 083, 084, 085, 088'>Vinaphone</option>
+      <option value='0522, 0523, 0528, 056, 058'>Vietnamobile</option>
+      <option value='0592, 0593, 0598, 0599'>GMobile</option>
+      <option value='087'>ITelecom</option>
+      <option value='055'>Reddi</option>
+      <option value='0672, 0991, 0998, 0999'>VSAT</option>
+      </select><br><br>
+      <span id='cacdauso'></span>
+      </li><br>
+      <li><b class="t">Tra cứu MÃ VÙNG :</b><button  onclick = "document.getElementsByClassName('modal')[9].style.display ='block' ">Open</button></li><br>
+      <li><b class="t">Tra cứu MÃ NƯỚC :</b><button  onclick = "document.getElementsByClassName('modal')[10].style.display ='block' ">Open</button></li>
+      </ul>
+      </div>
+
+      <div class ="flex-item">
+         &#128140<b class='t'> Các cú pháp thông dụng: </b>
+         <br>-TK Hybrid, phút KM TBTS:<i class='link'> KTLL gửi 195</i>
+         <br>-Thay đổi HMSD:<i class='link'>*199#OK,chọn phím 5</i>
+         <br>-Cước nóng: <i class='link'>TRA[cách]CUOC gửi 195</i>
+         <br>-Cước tháng trước:<i class='link'> TBC gửi 195</i> 
+         <br>-Tra ngày kích hoạt (TBTT):<i class='link'> GC gửi 195</i>
+         <br>-Kiểm tra TTCN (CMT đứng tên bao nhiêu số): <i class='link'>TTTB gửi 1414</i>
+         <br>-Kiểm tra dung lượng data: <i class='link'> KTTK gửi 191</i>
+         <br>-Đề nghị số<i class='link'> X</i>(nội mạng)gọi lại: <i class='link'> X gửi 9119</i>
+         <br>-Chuyển vùng quốc tế:<i class='link'> CVQT gửi 138</i>
+         <br>-Tra cứu dv GTGT đang dùng:<i class='link'> TC gửi 1228</i>
+         <br>-Trung tâm tin nhắn:<i class='link'> +84980200030</i> 
+         <br>&#128293<b class='t'>HOT! Giải thích thông số OCS-HLR:</b>
+         <br><button onclick = "document.getElementsByClassName('modal')[0].style.display ='block' "> Open </button>
+      </div>
+      
+      <div class="flex-item" >&#128245<b class="t">Các thể loại chặn cắt: </b>
+         <a onclick=Opentab() href='http://10.240.167.247:8198/default.aspx?task=link&id=38335'>Xem</a>
+         <br><br>&#127919<b class="t">Tổng quan Viettel : </b><a onclick=Opentab() href='http://10.240.167.247:8198/ViewFile.aspx?View=1&ThongTinID=12'>Xem</a>
+         <br><br>&#127919<b class="t">Chuyển đổi giữa các gói DĐ: </b><a onclick=Opentab() href='http://10.240.167.247:8198/default.aspx?task=link&id=38546'>Xem</a>
+         <br><br>&#127919<b class="t">Hình thức thanh toán Hybrid: </b><a onclick=Opentab() href='http://10.240.167.247:8198/default.aspx?task=link&id=39675'>Xem</a>
+         <br><br> &#127919<b class="t">HD tiếp nhận P/a thẻ cào: </b> 
+         <a onclick=Opentab() href='http://10.240.167.247:8198/default.aspx?task=link&id=40032'>Xem</a>
+         <br> <br>&#127919<b class="t">Quy trình cấp mã số cá nhân:</b> 
+         <a onclick=Opentab() href='http://10.240.167.247:8198/default.aspx?task=link&id=34696'>Xem</a>
+         <br><br> &#127919<b class="t">Chức năng phím 900(TBTT):</b> 
+         <a onclick=Opentab() href='http://10.240.167.247:8198/default.aspx?task=link&id=12697'>Xem</a>
+         <br><br>&#127919<b class="t">Chi tiết USSD *199# (TBTS): </b> 
+         <a onclick=Opentab() href='http://10.240.167.247:8198/default.aspx?task=link&id=32111'>Xem</a>
+      </div>
+      
+      <div class="flex-item" id='splus'>&#128184<b class="t"> Tool SPlus(511): </b> 
+      <br>&#128204<i><a onclick=Opentab() href="https://10.60.135.19:8443/"> Link đính kèm</a></i>
+      <br><button onclick = "document.getElementsByClassName('modal')[3].style.display ='block' "> Open </button>
+      <ul>
+      <li> User:   <input type='text' value ='CSKH' readonly='true' class="link"> </li>
+      <li> Password:   <input type='text' value ='cskhaA@123' readonly='true' class="link"> </li>
+      <li> Vào MT/ MO để kiểm tra thông tin </li>
+      </ul>
+      <b class="t"> Cú pháp thường dùng: </b> <br><br>
+      -Kiểm tra nợ cước: <i class="link"> KT gửi 511</i><br>
+      -Ứng phút nội mạng: <i class="link"> 1 gửi 511</i><br>
+      -Ứng phút ngoài mạng: <i class="link"> 2 gửi 511</i><br>
+      -Ứng sms nội mạng: <i class="link"> 3 gửi 511</i><br>
+      -Ứng sms ngoài mạng: <i class="link"> 4 gửi 511</i><br>
+      -Ứng data: <i class="link"> 5 gửi 511</i><br>
+      -Check sms,phút gọi,data: <i class="link">*102#OK</i>
+      </div>
+
+      <div class="flex-item" id='callplus'>&#128222<b class="t"> Tool CALLPLUS (1530):</b> 
+      <br>&#128204<i><a onclick=Opentab() href="https://10.58.49.108:8888/index/login"> Link đính kèm </a></i>
+      <br><button onclick = "document.getElementsByClassName('modal')[4].style.display ='block' "> Open </button>
+      <ul>
+      <li> User: <input type='text' value ='cskhcallplus' readonly='true' class="link"> </li>
+      <li> Password:  <input type='text' value ='Viettel@2019' readonly='true' class="link">  </li>
+      <li> Kiểm tra nợ cước,số phút đã dùng: <i class="link"> KTTK gửi 1530</i></li>
+      </ul>
+      Hướng dẫn sử dụng: <br>&#128204 <i><a onclick=Opentab() href="http://10.240.167.247:8198/default.aspx?task=link&id=36942"> Link hướng dẫn</a></i>
+      </div>
+      
+      <div class="flex-item" id='imuzik'>&#127926<b class="t"> Tool IMUZIK:</b> 
+      <br>&#128204<i><a onclick=Opentab() href="https://10.60.27.34:9595/csvcrbt/">Link tool.</a></i>
+      <br><button onclick = "document.getElementsByClassName('modal')[5].style.display ='block' "> Open </button>
+      <ul>
+      <li>User & Password: <span class="link"> giống BCCS </span> </li> 
+      &#128073Nhập sdt vào khung Phone numer rồi Enter<br>
+      &#128073 Vào "Nhạc tổng hợp" để cài đặt nhạc chờ.<br>
+      &#128073Vào SMS History chọn ngày để xem lịch sử gửi tin.<br>
+      &#128073Vào Hoạt động thuê bao >> Xem thông tin đăng ký / kích hoạt
+      </ul>
+      </div>
+      
+      <div class="flex-item" >&#128221<b class="t">Tool Isign Plus:</b>
+         <br>&#128204<i><a onclick=Opentab() href="http://10.30.4.5:8080/">Link tool.</a></i><br>
+         <ul>
+         <li>User: <input type='text' value ='cskh' readonly='true' class="link"></input></li>
+         <li>Password: <input type='text' value ='123456a@A' readonly='true' class="link"></input></li> 
+         <li>HDSD Tool: <a onclick=Opentab() href="http://10.240.167.247:8198/default.aspx?task=link&id=36455">&#128204Xem tại đây</a></li>
+         <br><br>
+         <li>
+            Hướng dẫn xử lý lỗi: <br>
+            Đài 198/HD XL lỗi/ Di động/ Lỗi Isign
+         </li>
+         </ul>
+         <br>
+         <button onclick = "document.getElementsByClassName('modal')[6].style.display ='block' ">Open</button>       
+      </div>
+
+      <!--<div class="flex-item" id='qtan'>&#127932<b class="t"> Tool Qùa tặng Âm nhạc:</b> <br>
+      &#128204<i><a onclick=Opentab() href="http://10.58.128.73:9299/login">Link Tool</a></i>
+      <ul>
+      <li>User : <input type='text' value ='cskh_dtv' readonly='true' class="link"></input> </li> 
+      <li>Password : <input type='text' value ='123456a@A' readonly='true' class="link"></input> </li> 
+      </ul>
+      &#128073Chọn Tab CSKH &#128073Tra cứu bài hát.
+      
+      <br><br> &#127919<b class="t">Cú pháp quà tặng âm nhạc: </b><a onclick=Opentab() href='http://10.240.167.247:8198/DV_GTGT.aspx?ID=535'>Xem</a>
+      <br><button onclick = "document.getElementsByClassName('modal')[6].style.display ='block' "> Open </button>
+      </div>-->
+      
+      <div class="flex-item" >&#128242<b class="t"> Tool Quản Lý Cấu Hình Thiết Bị:</b><br>
+      &#128204 <i><a onclick=Opentab() href="https://10.240.158.49:8080/MDMOAM/Index.do">Link tool MDM</a></i>
+      <br><button onclick = "document.getElementsByClassName('modal')[7].style.display ='block' "> Open</button>
+      <ul>
+      <li>Dùng để kiểm tra xem KH đã thay sim máy khác chưa / hoặc tra cứu thông tin dòng máy.</li>
+      <li>User & Password: <span class="link"> giống BCCS </span> </li> 
+      </ul>
+      &#128640<b class="t"> Tool tra cứu xổ số (8000/5x55):</b>
+      <br>&#128204 <i><a onclick=Opentab() href="http://10.240.175.81:8228/CustomerService/Authentication.do">Mở tool 8000/5x55</a></i>
+         <ul>
+           <li>Chọn Tra cứu lịch sử MO/MT</li> 
+           <li>Chọn ngày tương ứng và nhập STB.</li> 
+         </ul>
+      </div>
+      
+      
+      <div class="flex-item" >&#128641<b class="t"> Tra cứu Nạp thẻ hộ:</b>
+         <br><button onclick = "document.getElementsByClassName('modal')[1].style.display ='block' "> Open </button>
+         <ul>
+            <li>&#128204 <i><a onclick=Opentab() href="http://10.60.106.96:8080/RechargeMeCMS">Link đính kèm</a></i></li><br>
+            <li>Chi tiết + Điều kiện: &#128073 <a onclick=Opentab() href="http://10.240.167.247:8198/default.aspx?task=link&id=39661">Xem ...</a>
+            </li>
+         </ul>
+         &#128185<b class="t"> Tra cứu Ishare (Chuyển tiền):</b>
+         <ul>
+            <li>Chi tiết + Điều kiện: &#128073 <a onclick=Opentab() href="http://10.240.167.247:8198/DV_GTGT.aspx?ID=447">Xem ...</a>
+            </li>
+         </ul>
+      </div>
+      
+      <div class="flex-item">&#128647<b class="t"> Tool MPS Viettel: </b>
+         <ul>
+            <li>&#128204 <i><a onclick=Opentab() href="https://10.60.105.161:8377/cms">Link đính kèm</a></i></li>
+            <li>User:      <input type='text' value ='cskh_dtv' readonly='true' class="link"></li>
+            <li>Password:   <input type='text' value ='123456aA@' readonly='true' class="link"></li>
+            <li ><button onclick = "document.getElementsByClassName('modal')[2].style.display ='block' "> Open </button></li>
+         </ul>
+         &#128649<b class="t"> Tool MPS Đối tác: </b>
+         <ul>
+            <li>&#128204 <i><a onclick=Opentab() href="https://10.60.105.154:8377/cms">Link đính kèm</a></i></li>
+            <li>User:      <input type='text' value ='cskh_dtv' readonly='true' class="link"></li>
+            <li>Password:   <input type='text' value ='123456aA@' readonly='true' class="link"></li>
+            <li><button onclick = "document.getElementsByClassName('modal')[11].style.display ='block' "> Open </button></li>
+         </ul>
+      </div>
+
+      <div class="flex-item" id='gg'>&#128243<b class="t"> SamSung - Lỗi gửi tin đến tổng đài:</b>
+         <br><br> <i class='link'> Hệ điều hành Android dưới 6.0:</i><br>
+         Cài đặt &#9193 Ứng dụng (Một số máy có Quản lý Ứng dụng) &#9193 Menu (có máy hiển thị Nhiều hơn)&#9193 Hiển thị ứng dụng hệ thống &#9193 Dịch vụ nhắn tin &#9193 Gửi Premium SMS &#128073"Luôn cho phép".
+         <br><br>
+          <i class='link'> Hệ điều hành Android 6.0 trở lên: </i><br>
+         Cài đặt &#10145Ứng dụng &#10145Menu 3 chấm góc trên &#10145Truy cập đặc biệt &#10145Dùng dịch vụ nhắn tin Premium SMS &#128073"Luôn cho phép".
+         </div>
+      
+      </div>
+      <!--Hết flex-container-->
+      <h3 class='lb'><marquee>LƯU Ý: Đây là WEB OFFLINE GS viết để làm việc nhanh hơn, các bạn vẫn nên TỰ CÓ TRÁCH NHIỆM CẬP NHẬT NGHIỆP VỤ theo Đài 198 nhé.</marquee></h3>
+      </div>
+      <!--Hết tab tools-->
+      
+      <div  class='modal'>
+        <span class='close' onclick = "document.getElementsByClassName('modal')[0].style.display ='none' ">X</span>
+         <div class='modalcontent' style="background-color: #fff">
+          <iframe style="border:none ; width: 80vw; height:90vh" src= "http://10.240.147.246/BCCS_CC/resources/html/flagDetail.html"></iframe>
+         </div>
+      </div>
+      
+      <div class='modal'>
+        <span class='close' onclick = "document.getElementsByClassName('modal')[1].style.display ='none' ">X</span>
+         <div class='modal-header'>
+            &#128073 Rê chuột vào <b>Recharge Me</b> → Bấm vào Tra cứu    
+            &#128073 Chọn ngày tương ứng và nhập STB vào.
+         </div>
+         <div class='modalcontent'>
+          <iframe  style="border:none ; width: 100%; height:90vh" src= "http://10.60.106.96:8080/RechargeMeCMS"></iframe>
+         </div>
+      </div>
+      
+      <div class='modal'>
+        <span class='close' onclick = "document.getElementsByClassName('modal')[2].style.display ='none' ">X</span>
+         <div class='modal-header'>
+         User:      <input type='text' value ='cskh_dtv' readonly='true' class="link">
+         Password:   <input type='text' value ='123456aA@' readonly='true' class="link">
+         &#128073Chọn Tra cứu &#128073 Giao dịch &#128073 Giao dịch MPS &#128073 Nhập STB và xóa ngày trong ô "Từ ngày"&#128073 Tìm kiếm
+         </div>
+         <div class='modalcontent' style="background:linear-gradient(#0f1f3d,#0f1f3d,#00001a);">
+          <iframe style="border:none ; width: 100%; height:90vh" src= "https://10.60.105.161:8377/cms"></iframe>
+         </div>
+      </div>
+      
+      <div class='modal'>
+        <span class='close' onclick = "document.getElementsByClassName('modal')[3].style.display ='none' ">X</span>
+         <div class='modal-header'>
+         User: <input type='text' value ='CSKH' readonly='true' class="link"></input>
+         Password:   <input type='text' value ='cskhaA@123' readonly='true' class="link"></input>
+         &#128073 Vào MT/MO để kiểm tra tin trả về/ tin KH gửi lên 511.
+         </div>   
+         <div class='modalcontent'>
+          <iframe  style="border:none ; width: 100%; height:90vh" src= "https://10.60.135.19:8443/"></iframe>
+         </div>
+      </div>
+      
+      <div class='modal'>
+        <span class='close' onclick = "document.getElementsByClassName('modal')[4].style.display ='none' ">X</span>
+         <div class='modal-header'>
+         User: <input type='text' value ='cskhcallplus' readonly='true' class="link"></input>
+         Password:   <input type='text' value ='Viettel@2019' readonly='true' class="link"></input>
+         &#128073 Vào phần Tra cứu chọn mục tương ứng để xem.
+         </div>   
+         <div class='modalcontent'>
+          <iframe  style="border:none ; width: 100%; height:90vh" src= "https://10.58.49.108:8888/index/login"></iframe>
+         </div>
+      </div>
+      
+      <div class='modal'>
+        <span class='close' onclick = "document.getElementsByClassName('modal')[5].style.display ='none' ">X</span>
+         <div class='modal-header'>
+         User & Password: <input type='text' value ='giống BCCS' readonly='true' class="link"></input>
+         &#128073Nhập sdt vào khung Phone numer rồi Enter &#128073Vào SMS History chọn ngày để xem.
+         </div>
+         <div class='modalcontent'>
+          <iframe  style="border:none ; width: 100%; height:90vh" src= "https://10.60.27.34:9595/csvcrbt/"></iframe>
+         </div>
+      </div>
+      
+      <div class='modal'>
+         <span class='close' onclick = "document.getElementsByClassName('modal')[6].style.display ='none' ">X</span>
+          <div class='modal-header'>
+            User: <input type='text' value ='cskh' readonly='true' class="link"></input>
+            Password: <input type='text' value ='123456a@A' readonly='true' class="link"></input>
+          </div>
+          <div class='modalcontent'>
+           <iframe style="border:none ; width: 100%; height:90vh" src= "http://10.30.4.5:8080"></iframe>
+          </div>
+       </div>
+      <!--<div class='modal'>
+         <span class='close' onclick = "document.getElementsByClassName('modal')[6].style.display ='none' ">X</span>
+         <div class='modal-header'>
+         User: <input type='text' value ='cskh_dtv' readonly='true' class="link"></input>
+         Password:   <input type='text' value ='123456a@A' readonly='true' class="link"></input>
+         &#128073Chọn Tab CSKH &#128073Tra cứu bài hát.
+         </div>
+         <div class='modalcontent'>
+          <iframe style="border:none ; width: 100%; height:90vh" src= "http://10.58.128.73:9299/login"></iframe>
+         </div>
+      </div>-->
+      
+      <div class='modal'>
+        <span class='close' onclick = "document.getElementsByClassName('modal')[7].style.display ='none' ">X</span>
+         <div class='modal-header'>
+         User & Password: <input type='text' value ='giống BCCS' readonly='true' class="link"></input>
+         </div>
+         <div class='modalcontent'>
+          <iframe style="border:none ; width: 100%; height:90vh" src= "https://10.240.158.49:8080/MDMOAM/Index.do"></iframe>
+         </div>
+      </div>
+      
+      <div class='modal'>
+         <span class='close' onclick = "document.getElementsByClassName('modal')[8].style.display ='none' ">X</span>
+          <div class='modalcontent' style="background:linear-gradient(360deg,#0f1f3d,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#ffffe6,#f2ffcc); border: 1px solid #fff; border-radius: 5px;">
+            <h3 align ='center' >LẦN ĐẦU SỬ DỤNG TRÊN TRÌNH DUYỆT SFIVE (Updated 15/07/2021)</h3>
+            <ul >
+            <li>Các bạn Click hết vào các <i class='link'>Link đính kèm/ Link Tool</i> Open Tab mới: (Your connection is not private)=> <i class='link'>Chọn ADVANCED => Proceed to...</i>
+               <br>&#128073 Quay lại Tool198 nhấn F5 tải lại trang là xong! Những lần sau vào Tool sẽ load rất nhanh.
+            </li>
+            </ul>
+            <hr>
+
+            <h3 align ='center' >Các thiết lập Options bên dưới chỉ dành cho trình duyệt Firefox42 (Updated 07/07/2021)</h3>
+          <ul >
+       <li><b class='link'>LẦN ĐẦU SỬ DỤNG: </b><span class='t'>Mở Menu Options trên trình duyệt &#10145 Chọn Advanced &#10145 Certificates &#10145 Chọn Select one automatically.</span> 
+       <br><br>Xong rồi các bạn Click hết vào các <i class='t'>Link đính kèm/ Link Tool</i> để Trình duyệt xác thực 1 lần, về sau bấm Open không báo nữa &#128073Nhấn F5 tải lại trang là xong!</li><br>
+       <li>Lưu ý bấm nút Open báo lỗi <b>"This Connection is Untrusted"</b>: <span class='t'> Click vào link phía trên mở Tab mới > I Understand the risk > Add Exception > Confirm Security Exception.</span></li><br>
+    <li>Để trình duyệt chạy nhanh hơn: <span class='t'>Mở Options trên trình duyệt &#10145 Chọn Advanced &#10145 Dòng Cache Web Content &#10145 Click Clear Now (Click nhiều lần đến khi về 0 bytes nhé).</span></li><br>
+    <li>Lưu ý nếu mở trang báo lỗi <b>"Server not found"</b>: <span class='t'>Mở Menu Options trên trình duyệt &#10145 Chọn Advanced &#10145 Chọn Network &#10145 Chọn Settings &#10145 Chọn Use system proxy settings.</span></li><br>
+    <li>Nếu lỡ tay tắt đi Tab vừa đóng mà muốn mở lại: <span class='t'> Nhấn tổ hợp phím "Ctrl + Shift + t" để mở lại (Rất cần thiết nếu lỡ tắt mất Tab có số đt KH vừa đọc).</span></li>
+       </ul><br>
+       <h3 align='center' class='t'>Hướng dẫn tải Video về bật AutoReplay để ko tắt màn hình:</h3>
+       <p align='center'>
+       <video poster="http://10.240.167.247:8198/FtpFile.ashx?path=/Image/Administrator/SubAdmin/Dai198_QT_Toanbonoidung/HANOI/THUYDUNG/HINH%20KPI/moving-fconcept-vect.jpg" style="width: 40%; height: 30%;" controls>
+       <source src="http://10.240.167.54:8198/FileServer/Media/Administrator/SubAdmin/Dai198_QT_Toanbonoidung/HANOI/HCM/5gviettelxinchaovietnam.mp4">
+       </video><br><br>
+       &#128073<b>Click chuột phải chọn <span class='t'> "Save video as.."</span> rồi lưu ngoài Desktop.
+       <br><br>
+       &#128073Sau khi tải xong để mặc định mở bằng <span class='t'>"Window Media Player"</span> thì khi Click chuột phải vào video chọn <span class='t'>"Open with.."</span> &#128073chọn <span class='t'>"Choose another app"</span>
+       <br><br>&#128073Tick vào <span class='t'>"Always choose this app to open .mp4 files"</span> &#128073Chọn <span class='t'>"Window Media Player"</span>
+       <br><br>&#128073App mở lên rồi click vào biểu tượng mũi tên xoay vòng <span class='t'>"Turn repeat on"</span>. Xong!!!</b >
+       </p>
+          </div>
+    </div>
+      
+      <div  class='modal'>
+        <span class='close' onclick = "document.getElementsByClassName('modal')[9].style.display ='none' ">X</span>
+         <div class='modalcontent' style="background-color: #fff">
+          <iframe style="border:none ; width: 100%; height:90vh" style="border:none" src= "http://10.240.167.247:8198/default.aspx?task=link&id=39161"></iframe>
+         </div>
+      </div>
+      
+      <div  class='modal'>
+        <span class='close' onclick = "document.getElementsByClassName('modal')[10].style.display ='none' ">X</span>
+         <div class='modalcontent' style="background-color: #fff">
+          <iframe style="border:none ; width: 100%; height:90vh" style="border:none" src= "http://10.240.167.247:8198/default.aspx?task=link&id=39163"></iframe>
+         </div>
+      </div>
+      
+      <div class='modal'>
+         <span class='close' onclick = "document.getElementsByClassName('modal')[11].style.display ='none' ">X</span>
+          <div class='modal-header'>
+          User:      <input type='text' value ='cskh_dtv' readonly='true' class="link">
+          Password:   <input type='text' value ='123456aA@' readonly='true' class="link">
+          &#128073Chọn Tra cứu &#128073 Giao dịch &#128073 Giao dịch MPS &#128073 Nhập STB và xóa ngày trong ô [Từ ngày]&#128073 Tìm kiếm
+          </div>
+          <div class='modalcontent' style="background:linear-gradient(#0f1f3d,#0f1f3d,#00001a);">
+           <iframe style="border:none ; width: 100%; height:90vh" src= "https://10.60.105.154:8377/cms"></iframe>
+          </div>
+      </div>
+
+      <div class='modal'>
+         <span class='close' onclick = "document.getElementsByClassName('modal')[12].style.display ='none' ">X</span>
+          <div class='modal-header'>
+          <h1 style="color: yellow; text-align: center;">DANH SÁCH KHÁCH HÀNG ĐẶC BIỆT</h1>
+          
+          </div>
+          <div class='modalcontent' style="background:#fff">
+            <table id='tbkhdb'>
+               <tr>
+                  <td class="tdstt" style="background-color: yellow; color:#0f1f3d; font-weight: bold; text-align: center;"> STT</td>
+                  <td class="tdten" style="background-color: yellow; color:#0f1f3d;font-weight: bold;text-align: center;"> Tên Khách hàng</td>
+                  <td class="tdsdt" style="background-color: yellow; color:#0f1f3d;font-weight: bold;text-align: center;"> Số thuê bao gọi lên</td>
+                  <td class="tdndkn" style="background-color: yellow; color:#0f1f3d;font-weight: bold;text-align: center;"> Nội dung thường hay khiếu nại</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 1</td>
+                  <td class="tdten"> Lê Xuân Tiến</td>
+                  <td class="tdsdt"> xx82956957 / b651_gftth_hoantt12...</td>
+                  <td class="tdndkn"> KH thường hỏi thuộc cty đối tác nào? KN Hold máy, mute máy, đôi co với KH.</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 2</td>
+                  <td class="tdten"> Nguyễn Văn Hữu</td>
+                  <td class="tdsdt"> xx82799798 - xx01xx8198 - b650_gftth_huunv17...</td>
+                  <td class="tdndkn"> KH hay hỏi Viettel++ => khiếu nại Hold máy quá 60s, hay đôi co không chịu chuyển GS nghe HOT theo yêu cầu.</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 3</td>
+                  <td class="tdten"> Lê Lâm Trường </td>
+                  <td class="tdsdt"> xx656161 -xx74287299 - xx33487444 - xx26932393...</td>
+                  <td class="tdndkn"> KH khiếu nại Hold máy >60s, hoặc tự ý Hold máy khi KH chưa cho phép, bấm MUTE trong CG...</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 4</td>
+                  <td class="tdten"> Nguyễn Văn Lộng </td>
+                  <td class="tdsdt"> xx85909501 </td>
+                  <td class="tdndkn"> KH hỏi thuê bao 0972300404 còn hoạt động không và KH muốn mua lại số này. &#10145 TT đúng: Số thuê bao đã bị hủy và chưa có người sử dụng.</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 5</td>
+                  <td class="tdten"> Võ Thành Duy</td>
+                  <td class="tdsdt"> xx66600010 - 0776785857</td>
+                  <td class="tdndkn"> KH thường khiếu nại dịch vụ ít gặp, khiếu nại kỹ năng, cách dùng từ ngữ khi trả lời KH.</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 6</td>
+                  <td class="tdten"> KH Quang</td>
+                  <td class="tdsdt"> xx8316856</td>
+                  <td class="tdndkn"> KH hỏi các CTKM, game trên MyVT, Mocha. (giọng hơi lè nhè dễ nhầm là KH say xỉn) &#10145 Thông tin không rõ phải hỏi GS ngay. </td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 7</td>
+                  <td class="tdten"> Nguyễn Trung Nguyên</td>
+                  <td class="tdsdt"> xx83398551 - xx56171476</td>
+                  <td class="tdndkn"> KH khó tính hỏi nhiều thông tin và khiếu nại trực tiếp phòng GQKN.</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 8</td>
+                  <td class="tdten"> KH Phúc (ĐTV cũ)</td>
+                  <td class="tdsdt"> xx62607073 -xx68843934</td>
+                  <td class="tdndkn"> KN cung cấp sai hướng tiêu dùng TKKM nạp thẻ, tư vấn không đầy đủ thông tin gói Data / gói KM</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 9</td>
+                  <td class="tdten"> Võ Minh Hiệu</td>
+                  <td class="tdsdt"> xx68644179 -xx79787271</td>
+                  <td class="tdndkn"> KH hỏi KM tải bài hát nhạc chờ theo tuần Có hay Không? &#10145 TT đúng: Có</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 10</td>
+                  <td class="tdten"> Nguyễn Thanh Liêm</td>
+                  <td class="tdsdt"> xx86280233 - d061_gftth_liemnt10</td>
+                  <td class="tdndkn"> KH chuyên nghiệp, khó tính, thông tin không rõ phải hỏi GS</td>
+               </tr>
+               <tr>
+                  <td class="tdstt">11</td>
+                  <td class="tdten"> KH Phát</td>
+                  <td class="tdsdt"> xx66514435 - xx95113459</td>
+                  <td class="tdndkn"> KH hay KN ĐTV giải trình cước sai, dv Triệu phú tri thức + Đấu trường âm nhạc</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 12</td>
+                  <td class="tdten"> Nguyễn Phúc Tâm</td>
+                  <td class="tdsdt"> xx05915551 - t0xx_gftth_tamnp10 - b075_gftth_tamnp</td>
+                  <td class="tdndkn"> KH chuyên nghiệp, khó tính, thông tin không rõ phải hỏi GS</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 13</td>
+                  <td class="tdten"> Bùi Nguyên Khá</td>
+                  <td class="tdsdt"> xx62375465 - t0xx_gftth_khabn1</td>
+                  <td class="tdndkn"> KH chuyên nghiệp, khó tính, thông tin không rõ phải hỏi GS</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 14</td>
+                  <td class="tdten"> Lê Tuấn Anh</td>
+                  <td class="tdsdt"> xx72305506 - a076_gftth_anhlt16</td>
+                  <td class="tdndkn"> KH chuyên nghiệp, khó tính, thông tin không rõ phải hỏi GS</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 15</td>
+                  <td class="tdten"> KH Trung</td>
+                  <td class="tdsdt"> xx89216779 - b062_gftth_trungcttvtt</td>
+                  <td class="tdndkn"> KH chuyên nghiệp, khó tính, thông tin không rõ phải hỏi GS</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 16</td>
+                  <td class="tdten"> Nguyễn Phúc Lâm</td>
+                  <td class="tdsdt"> xx72786634 - d61_gmts2_lamnp0</td>
+                  <td class="tdndkn"> KH chuyên nghiệp, khó tính, thông tin không rõ phải hỏi GS</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 17</td>
+                  <td class="tdten"> Lê Quang Lộc</td>
+                  <td class="tdsdt"> xx77377374 - xx85617545</td>
+                  <td class="tdndkn"> KH chuyên nghiệp, khó tính, thông tin không rõ phải hỏi GS</td>
+               </tr>
+               <tr>
+                  <td class="tdstt"> 18</td>
+                  <td class="tdten"> KH Đại lý</td>
+                  <td class="tdsdt"> xx13860300 - xx59931555</td>
+                  <td class="tdndkn"> KH rất khó tính, thường KN về quy trình CMGS &#10145 Cần xin ý kiến GS trước khi trả lời.</td>
+               </tr>
+            </table>
+          </div>
+      </div>
+
+      <!-- Page Diem danh-->
+      <div id="dd" class="tabcontent">
+      <ul style="margin-top: 3%; margin-left: 80%;"> <b class="lb2">Link dự phòng:</b>
+      <li><a onclick=Opentab() href="http://192.168.36.14:8002">192.168.36.14:8002</a></li>
+      <li><a onclick=Opentab() href="http://192.168.36.14:8003">192.168.36.14:8003</a></li>
+      <li><a onclick=Opentab() href="http://192.168.36.14:8004">192.168.36.14:8004</a></li>
+      </ul>
+          <iframe style="border:none ; width: 100%; height:90vh ; background:none" src= "http://192.168.36.14:8001/"></iframe>
+      </div>
+      <!--End Diem danh-->
+      
+      <!-- Page Xu ly tinh huong thuong gap-->
+      <div id="xlpatg" class="tabcontent">
+      <br><br><h1>HƯỚNG DẪN XỬ LÝ MỘT SỐ TÌNH HUỐNG THƯỜNG GẶP</h1>
+         <div>
+            <p >
+               <span class="txtHL">CHỌN TÌNH HUỐNG BẠN ĐANG GẶP PHẢI: </span> 
+               <select id='dstinhhuong' onchange="xlTH()">
+                  <option value='http://10.240.167.247:8198/default.aspx?task=link&id=28406&MenuID=10877&level1=2565&level2=2608&NhomID=11'>KH KHẲNG ĐỊNH KHÔNG ỨNG (TIỀN, DATA/ SMS...)-HOẶC KHÔNG ĐĂNG KÝ NHƯNG PHÁT SINH DV GTGT</option>
+                  <option value='http://10.240.167.247:8198/default.aspx?task=link&id=28893&MenuID=11557'>KH MUỐN TĂNG/HẠ/HỦY CTKM TBTS</option> 
+                  <option value='http://10.240.167.247:8198/default.aspx?task=link&id=39156'>KH ĐÃ CHỐT CHUYỂN ĐỔI CTKM VỚI Telesale, NHƯNG SAU ĐÓ ĐỔI Ý.</option>
+                  <option value='http://10.240.167.247:8198/default.aspx?task=link&id=42218'>KH MUỐN HỦY GÓI DATA (CTKM) VÀ YÊU CẦU HOÀN TIỀN.</option>
+                  <option value='http://10.240.167.247:8198/default.aspx?task=link&id=31998&MenuID=13444'>TBTS BỊ CHẶN DO CHƯA XÁC MINH THÔNG TIN (LS Tác động ghi KH giả mạo)</option>
+                  <option value='http://10.240.167.247:8198/default.aspx?task=link&id=39263&MenuID=15695'>KH KHÔNG ĐĂNG KÝ NHƯNG BỊ ĐỨNG TÊN (hay nợ cước) TRÊN STB KHÁC</option>
+                  <option value='http://10.240.167.247:8198/default.aspx?task=link&id=38007'>KH KHẲNG ĐỊNH DÙNG ÍT (HOẶC KHÔNG DÙNG) NHƯNG DATA BỊ TRỪ NHANH</option>
+                  <option value='http://10.240.167.247:8198/TBDC_Mobile.aspx'>CÀI NHANH APN THEO DÒNG MÁY (Chọn mạng , cài TTTN v.v..)</option>
+                  <option value='http://10.240.167.247:8198/default.aspx?task=link&id=39271&MenuID=15703'>KH PHẢN ÁNH NHẬN ĐƯỢC TIN NHẮN/ CUỘC GỌI RÁC!!!</option>
+                  <option value='http://10.240.167.247:8198/default.aspx?task=link&id=38713'>KH BỊ CHẶN NĐ 49 - NGUYÊN NHÂN: Nghi ngờ KIT kích hoạt sẵn tồn kênh.</option>
+                  <option value='http://10.240.167.247:8198/default.aspx?task=link&id=39973&MenuID=15896'>CÁC THỂ LOẠI CHẶN SPAM/CHẶN KDDV (Check Spam SMS: "Chặn Lậu cước" / LS Tác động: "Phát sinh lưu lượng bất thường đi QTế")</option>
+               </select>
+            </p>
+            <span id="txtTH">Menu Đài 198/ HD GQKN /Cước dịch vụ/ SMS,MMS trong nước => Mục số 4</span><hr>
+            <iframe id="xlth" style="border:none ; width: 100%; height:80vh" src= "http://10.240.167.247:8198/default.aspx?task=link&id=28406&MenuID=10877&level1=2565&level2=2608&NhomID=11"></iframe>
+
+         </div>
+      </div>
+         <!--End Xu ly tinh huong thuong gap-->
+      
+         <!-- Page GPPTC-->
+      <div id="gpptc" class="tabcontent">
+         <ul style="margin-top: 70px">
+            <li class="lb">&#128680 HDSD link phân tích SOC vô tuyến và GPPTC: <a onclick=Opentab() href="http://10.240.167.247:8198/ThuVienDienTu.aspx?ID=116">Xem tại đây</a></li>
+            <br><li class="lb">User: <input type='text' value ='cc_dtv3' readonly='true' class="link"></input>
+               Password:   <input type='text' value ='Qweasd@123' readonly='true' class="link"></input>
+            HDSD: Chọn Kick MSISDN &#128073Add MSISDN to kick &#128073Nhập 84 vào rồi mới paste sđt &#128073SGSN: Xem trong OCS-HLR của STB.</li>
+         </ul>
+             <iframe style="border:none ; width: 100%; height:80vh" src= "http://192.168.251.15:9110/kick/user"></iframe>
+        
+      </div>
+         <!--End GPPTC-->
+
+         <!--Page Check Hai long-->
+         <div id="pagecheckHL" style="text-align: center;" class="tabcontent"><br>
+            <h1>Đang update, tạm thời ĐTV chưa xem được...</h1>
+            <table id="checkHL">
+               <tr>
+                   <td style="width: 35%;">
+                       <input type="file" id="fileUpload" />
+                       <input type="button" id="upload" value="Tải lên" onclick='Upload()' />
+                       <span id="endtime">Dữ liệu tính đến: </span>
+                   </td>
+                   <td style="width: 20%;">
+                       <input type="button" id="lochl" title="Không điền danh số thì sẽ check toàn công ty" onclick="locHL()" value="Check tỉ lệ"/>
+                       <input class="form-control" id="myInput" type="text" placeholder="Điền danh số của bạn vào..." >
+                   </td>
+                   <td  style="width: auto;">
+                     <span id="txtHLNOK" style="margin-left: 10px;">Danh sách ĐTV có CG NOK:</span> 
+                     <select id='dsnok' onchange="bflocHL()">
+                        <option>Danh sách NOK</option>
+                     </select>
+                   </td>
+               </tr>
+           </table>
+       
+           <hr />
+           <div id="dvExcel">
+           </div>  
+         </div>
+         <!--End Check HL-->
+      
+      <div id="tdkhac" class="tabcontent">
+         <iframe style="border:none ; width: 100%; height:98vh; background-color: #f0f6ff; color: #0f1f3d;" src= "http://10.240.167.247:8198/default.aspx?task=link&id=39165"></iframe>
+      </div>
+      <div id="tdnh" class="tabcontent">
+         <iframe style="border:none ; width: 100%; height:98vh;background-color: #f0f6ff; color: #0f1f3d" src= "http://10.240.167.247:8198/default.aspx?task=link&id=16522"></iframe>
+      </div>
+      <!--END RELAX-->
+      <script>
+      function openPage(pageName){
+      var i,tabcontent,tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for(i=0; i<tabcontent.length; i++){
+      tabcontent[i].style.display= "none";
+      }
+      document.getElementById(pageName).style.display= "block";
+      }
+      document.getElementById('tools').style.display= "block";
+      </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/xlsx.full.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
+<script type="text/javascript">
+   function Upload() {
+       //Reference the FileUpload element.
+       var fileUpload = document.getElementById("fileUpload");
+
+       //Validate whether File is valid Excel file.
+       var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xls|.xlsx)$/;
+      
+       if (regex.test(fileUpload.value.toLowerCase())) {
+           if (typeof (FileReader) != "undefined") {
+               var reader = new FileReader();
+
+               //For Browsers other than IE.
+               if (reader.readAsBinaryString) {
+                   reader.onload = function (e) {
+                       ProcessExcel(e.target.result);
+                   };
+                   reader.readAsBinaryString(fileUpload.files[0]);
+               } else {
+                   //For IE Browser.
+                   reader.onload = function (e) {
+                       var data = "";
+                       var bytes = new Uint8Array(e.target.result);
+                       for (var i = 0; i < bytes.byteLength; i++) {
+                           data += String.fromCharCode(bytes[i]);
+                       }
+                       ProcessExcel(data);
+                   };
+                   reader.readAsArrayBuffer(fileUpload.files[0]);
+               }
+           } else {
+               alert("This browser does not support HTML5.");
+           }
+       } else {
+           alert("Vui lòng chọn file phù hợp.");
+       }
+   };
+   function ProcessExcel(data) {
+       //Read the Excel File data.
+       var workbook = XLSX.read(data, {
+           type: 'binary'
+       });
+
+       //Fetch the name of First Sheet.
+       var firstSheet = workbook.SheetNames[0];
+
+       //Read all rows from First Sheet into an JSON array.
+       var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[firstSheet]);
+
+       //Create a HTML Table element.
+       var table = document.createElement("table");
+       table.id = 'dvExceltable';
+       table.border = "1";
+       
+       //Add the header row.
+       var row = table.insertRow(-1);
+
+       //Add the header cells.
+       var headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Ngày";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Kênh";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Số thuê bao";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Hình thức survey";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Phân khúc khách hàng";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Loại Khách hàng";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Line tiếp nhận";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Nhân viên tiếp nhận";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Đối tác";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Loại đối tác";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Tổng đài khu vực";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Thời gian KH chờ gặp tổng đài";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Thời gian đàm thoại của khách hàng";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Thời điểm KH gọi tổng đài";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Thời điểm nhắn tin khảo sát";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Thời điểm KH phản hồi";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Kết quả khảo sát";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Trạng thái phản hồi";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Điểm đánh giá";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Phân loại mức độ hài lòng";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Nguyên nhân KH không hài lòng ";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Đóng góp";
+       row.appendChild(headerCell);
+
+       headerCell = document.createElement("TH");
+       headerCell.innerHTML = "Đơn vị chịu trách nhiệm";
+       row.appendChild(headerCell);
+
+
+       //Add the data rows from Excel file.
+       for (var i = 0; i < excelRows.length; i++) {
+           //Add the data row.
+           var row = table.insertRow(-1);
+
+           //Add the data cells.
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].Ngay;
+
+           cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].Kenh;
+
+           cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].SoTB;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].HinhthucKS;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].PhankhucKH;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].LoaiKH;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].KenhTiepnhan;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].NVTiepnhan;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].Doitac;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].LoaiDoitac;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].TongdaiKV;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].TGianKHcho;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].TGianKHdamthoai;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].TDiemKHgoi;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].TDiemNTKS;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].TDiemKHphanhoi;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].KetquaKS;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].TThaiPhanhoi;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].DiemKS;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].MucdoHL;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].NguyennhanNOK;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].DongGop;
+
+           var cell = row.insertCell(-1);
+           cell.innerHTML = excelRows[i].DonviChiuTrachNhiem;
+
+
+       }
+
+       var dvExcel = document.getElementById("dvExcel");
+       dvExcel.innerHTML = "";
+       dvExcel.appendChild(table);
+       
+       
+   };
+</script>
+
+<!--Ham loc user-->
+
+<script>  
+   function locHL()
+   {
+      var input, filter, table,tr,td,i,txtValue,txtValue2,sumr,td2,sumr2,ok,gettime,j,temp,opt;
+        gettime=[];
+       
+        
+        sumr =0;
+        sumr2 =0;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("dvExceltable");
+        tr = table.getElementsByTagName("tr");
+        temp = tr[1].getElementsByTagName("td")[15];
+        //Vong lap qua het cac dong trong table, an di cac dong khong tim thay
+        for(i=0; i<tr.length; i++)
+        {   
+            td= tr[i].getElementsByTagName("td")[7];
+            td2= tr[i].getElementsByTagName("td")[18];
+            
+            if(i>1)
+            {
+               if(temp.innerHTML.toLowerCase() < tr[i].getElementsByTagName("td")[15].innerHTML.toLowerCase())
+               { 
+                temp = tr[i].getElementsByTagName("td")[15];
+               }
+            }
+            
+            if(td)
+            {
+                txtValue = td.textContent || td.innerText;
+                if(txtValue.toUpperCase().indexOf(filter)>-1)
+                {
+                    tr[i].style.display ="";
+                    gettime.push(tr[i].getElementsByTagName("td")[15]);
+                    sumr+=1;
+                    if(td2.textContent!='9' && td2.textContent!='10')
+                    {
+                        opt = tr[i].getElementsByTagName("td")[7];
+                        addDsNOK(opt);
+                        sumr2+=1;
+                        tr[i].style.backgroundColor='yellow';
+                        tr[i].style.color='red';
+                    }
+                }
+                else
+                {
+                    tr[i].style.display ="none";
+                }
+            }
+        }
+        var max;
+        max=gettime[0];
+        for(j=1;j<gettime.length;j++)
+        {
+            if(max.innerHTML.toLowerCase() < gettime[j].innerHTML.toLowerCase())
+            {max = gettime[j];}     
+        }
+        ok=sumr-sumr2;  
+        document.getElementById('endtime').innerHTML = "Dữ liệu tính đến: "+ temp.innerHTML; 
+        document.getElementById('txtHLNOK').innerHTML= "Có "+(document.getElementById('dsnok').options.length-1)+" ĐTV có CG NOK:";
+         if(sumr!=0)
+       {
+         alert("CG chấm gần nhất: "+max.innerHTML+"\nĐạt: " +ok+"CG \nRớt: "+sumr2+"CG \nTổng khảo sát là: " + sumr +"CG \nTỉ lệ trong ngày: "+((ok/sumr*100).toFixed(2))+"%");
+       }
+       else alert('Không có thông tin');       
+   }
+
+   function addDsNOK(opt)
+   {
+      var ddl = document.getElementById('dsnok');
+      var option = document.createElement('OPTION');
+      var addok=0;
+      option.innerHTML = opt.innerHTML;
+      for(i=0;i<ddl.options.length;i++)
+      {
+        if(option.innerHTML == ddl.options[i].innerHTML)
+        {addok+=1;}
+      }
+      if(addok==0)
+      {ddl.options.add(option);}
+   }
+   function bflocHL()
+   {
+    var e= document.getElementById('dsnok');
+   // var val =e.options[e.selectedIndex].value;
+    var txt =e.options[e.selectedIndex].text;
+    if(e.options[e.selectedIndex].selected==true)
+    { 
+       document.getElementById('myInput').value=txt;
+       locHL();
+    }
+   }
+</script>
+
+<script>
+      var input = document.getElementById('myInput');
+      input.addEventListener("keyup",function(event)
+      {
+         if(event.keyCode==13)
+         {
+            event.preventDefault();
+            document.getElementById('lochl').click();
+         }
+      })    
+</script>
+      
+</body>
+</html>
